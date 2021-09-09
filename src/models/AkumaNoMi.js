@@ -1,6 +1,6 @@
 const connectMongo = require("../database/database");
 
-connectMongo.akumasnomis.insertOne({
+const Akumanomi = connectMongo.akumasnomis.insertOne({
     nome:{
         type: String,
         require: true
@@ -23,3 +23,4 @@ connectMongo.akumasnomis.insertOne({
     }
 });
 
+module.exports = Akumanomi
