@@ -1,36 +1,25 @@
-const mongodb = require("mongodb");
-const Akumanomi = require("../models/AkumaNoMi");
-const connectMongo = require("../database/database");
-const ObjectId = mongodb.ObjectId;
+const {akumanomi, ObjectId} = require("../database/database");
 
-const getPersonagemById = async (id) => connectMongo.akumasnomis.findOne({
-     _id: ObjectId(id) 
-});
-const getPersonagensValidas = () => connectMongo.akumasnomis.find({}).toArray();
+getAkumaById = async (id) => akumanomi.findOne({ _id: ObjectId(id) });
 
-const validaId = async (req, res) => {
-    const { id } = req.params;
-
-    if(!getPersonagemById){
+const validaId = async (req, res,next) => {
+    const id = req.params.id;
+    if(!ObjectId.isValid(id)){
         res.status(400).send({error: "id inválido"});
         return;
     }
-
     try {
-        const akumanomi = await Akumanomi.findById(id);
+        const akumanomi = await getAkumaById(id);
         if(!akumanomi){
-            return res.status(404).send({message: "Personagem não encontrado"})
+            return res.status(404).send({message: "Akuma no mi não encontrada"});
         }
-        res.akumanomi = akumanomi
+        res.akumanomi = akumanomi;
     } catch (err) {
       return res.status(500).send({error: err})
     }
-  
     next();
 };
 
 module.exports = {
-    getPersonagemById,
-    getPersonagensValidas,
     validaId
-}
+};
