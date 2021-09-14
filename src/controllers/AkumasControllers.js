@@ -6,7 +6,7 @@ const home = async(req, res) => {
 
 const getAll = async(req, res) => {
     const akumanomi = await Akumanomi.find({}).toArray();
-    if (akumas.length === 0){
+    if (akumanomi.length === 0){
         res.status(404).send({error: "Lista vazia"})
     }
     res.send({ akumanomi });
