@@ -14,6 +14,7 @@ routes.get("/read-by-id/:id",akumaMiddleware.validaId, akumaController.getById);
 routes.post("/create", akumaController.create);
 routes.put("/update/:id", akumaMiddleware.validaId, akumaController.update);
 routes.delete("/delete/:id", akumaMiddleware.validaId, akumaController.del);
+//routes.get("/filter", akumaController.filterAll);
 
 routes.all("*", function (req, res) {
     res.status(404).send({ message: "Endpoint was not found" });

@@ -1,6 +1,6 @@
-const {akumanomi, ObjectId} = require("../database/database");
+const {Akumanomi, ObjectId} = require("../database/database");
 
-getAkumaById = async (id) => akumanomi.findOne({ _id: ObjectId(id) });
+getAkumaById = async (id) => Akumanomi.findOne({ _id: ObjectId(id) });
 
 const validaId = async (req, res,next) => {
     const id = req.params.id;

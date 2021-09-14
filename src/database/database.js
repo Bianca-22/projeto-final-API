@@ -10,6 +10,6 @@ client.connect(() => {
 });
 
 const db = client.db("onepiece_db");
-const akumanomi = db.collection('akumanomi');
+const Akumanomi = db.collection('akumanomi');
 
-module.exports = {akumanomi,ObjectId};
+module.exports = {Akumanomi,ObjectId};
