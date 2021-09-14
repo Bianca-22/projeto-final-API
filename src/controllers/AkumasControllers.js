@@ -16,7 +16,7 @@ const getById = async(req, res) => {
     const id = req.params.id;
     const akumanomi = await Akumanomi.findOne({ _id: ObjectId(id) });
 
-    if (!akuma){
+    if (!akumanomi){
         res.status(404).send({ error: "Akuma no Mi não encontrada."});
     };
     res.send({ akumanomi });
