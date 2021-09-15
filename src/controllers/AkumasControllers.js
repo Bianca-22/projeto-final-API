@@ -75,7 +75,7 @@ const del = async (req, res) => {
     res.send(204);
 };
 
-const filterAll = async (req, res) => {
+/* const filterAll = async (req, res) => {
     const nome = req.query.nome;
   if (!nome) {
     res.status(400).send({ erro: "Parametro não recebido" });
@@ -87,7 +87,29 @@ const filterAll = async (req, res) => {
   } catch (err) {
     return res.status(500).send({ error: err.message });
   }
-};
+}; */
+
+const filterAll = async (req, res) => {
+    let { nome } = req.query;
+  
+    !nome ? (nome = "") : (nome = nome);
+  
+  
+    try {
+      const akumanomi = await Akumanomi.find({
+        nome: { $regex: `${nome}`, $options: 'i' },
+       
+      });
+  
+      if (akumanomi.length === 0)
+        return res.status(404).send({ erro: "akumanomi não encontrado" });
+  
+      return res.send({ akumanomi });
+    } catch (err) {
+      return res.status(500).send({ error: err.message });
+    }
+  };
+  
 
 module.exports = {
     home,
