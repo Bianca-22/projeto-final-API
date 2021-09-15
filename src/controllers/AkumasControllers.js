@@ -75,19 +75,19 @@ const del = async (req, res) => {
     res.send(204);
 };
 
-// const filterAll = async (req, res) => {
-//     const nome = req.query.nome;
-//     if (!nome) {
-//       res.status(400).send({ erro: "Parametro não recebido" });
-//       return;
-//     }
-//     try {
-//       const akumanomi = await Akumanomi.find({ nome: { $regex: `${nome}` } });
-//       return res.send({ akumanomi });
-//     } catch (err) {
-//       return res.status(500).send({ error: err.message });
-//     }
-// };
+const filterAll = async (req, res) => {
+    const nome = req.query.nome;
+  if (!nome) {
+    res.status(400).send({ erro: "Parametro não recebido" });
+    return;
+  }
+  try {
+    const akumanomi = await Akumanomi.find({ nome: { $regex: `${nome}`, $options: "i" } });
+    return res.send({ akumanomi });
+  } catch (err) {
+    return res.status(500).send({ error: err.message });
+  }
+};
 
 module.exports = {
     home,
@@ -96,5 +96,5 @@ module.exports = {
     update,
     getById,
     del,
-    //filterAll
+    filterAll
 }

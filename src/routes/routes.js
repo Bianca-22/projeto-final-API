@@ -31,7 +31,7 @@ routes.delete(
     akumaMiddleware.validaId, 
     akumaController.del
 );
-//routes.get("/filter", akumaController.filterAll);
+routes.get("/filter", akumaController.filterAll);
 
 routes.all("*", function (req, res) {
     res.status(404).send({ message: "Endpoint was not found" });
