@@ -1,19 +1,36 @@
 const express = require("express");
 const routes = express.Router();
-var cors = require("cors");
 
 const akumaController = require("../controllers/AkumasControllers");
 const akumaMiddleware = require("../middlewares/AkumaMiddlewares");
 
-routes.use(cors());
-routes.options("*", cors());
-
-routes.get("/home", akumaController.home);
-routes.get("/read-all", akumaController.getAll);
-routes.get("/read-by-id/:id",akumaMiddleware.validaId, akumaController.getById);
-routes.post("/create", akumaController.create);
-routes.put("/update/:id", akumaMiddleware.validaId, akumaController.update);
-routes.delete("/delete/:id", akumaMiddleware.validaId, akumaController.del);
+routes.get(
+    "/home", 
+    akumaController.home
+);
+routes.get(
+    "/read-all", 
+    akumaController.getAll
+);
+routes.get(
+    "/read-by-id/:id",
+    akumaMiddleware.validaId, 
+    akumaController.getById
+);
+routes.post(
+    "/create", 
+    akumaController.create
+);
+routes.put(
+    "/update/:id", 
+    akumaMiddleware.validaId, 
+    akumaController.update
+);
+routes.delete(
+    "/delete/:id", 
+    akumaMiddleware.validaId, 
+    akumaController.del
+);
 //routes.get("/filter", akumaController.filterAll);
 
 routes.all("*", function (req, res) {

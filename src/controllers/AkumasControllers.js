@@ -76,22 +76,13 @@ const del = async (req, res) => {
 };
 
 // const filterAll = async (req, res) => {
-//     var { nome, tipo, usuario } = req.query;
-  
-//     !nome ? (nome = "") : (nome = nome);
-//     !tipo ? (tipo = "") : (tipo = tipo);
-//     !usuario ? (usuario = "") : (usuario = usuario);
-  
+//     const nome = req.query.nome;
+//     if (!nome) {
+//       res.status(400).send({ erro: "Parametro não recebido" });
+//       return;
+//     }
 //     try {
-//       const akumanomi = await Akumanomi.find({
-//         nome: { $regex: `${nome}`, $options: 'i' },
-//         tipo: { $regex: `${tipo}`, $options: 'i' },
-//         usuario: {$regex: `${usuario}`, $options: 'i' },
-//       });
-  
-//       if (akumanomi.length === 0){
-//         return res.status(404).send({ erro: "Akuma no Mi não encontrada" });
-//       }
+//       const akumanomi = await Akumanomi.find({ nome: { $regex: `${nome}` } });
 //       return res.send({ akumanomi });
 //     } catch (err) {
 //       return res.status(500).send({ error: err.message });
