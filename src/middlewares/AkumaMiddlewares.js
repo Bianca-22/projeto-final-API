@@ -1,17 +1,17 @@
-const {Akumanomi, ObjectId} = require("../database/database");
-
-getAkumaById = async (id) => Akumanomi.findOne({ _id: ObjectId(id) });
+const conexao = require("../database/database");
+const AkumaSchema = require("../models/AkumanomiModel");
 
 const validaId = async (req, res,next) => {
     const id = req.params.id;
-    if(!ObjectId.isValid(id)){
-        res.status(400).send({error: "id inválido"});
+    if (!conexao.Types.ObjectId.isValid(id)) {
+        res.status(422).send({ error: "Id inválido" });
         return;
-    }
+    };
     try {
-        const akumanomi = await getAkumaById(id);
-        if(!akumanomi){
-            return res.status(404).send({message: "Akuma no mi não encontrada"});
+        const akumanomi = await AkumaSchema.findById(id);
+        if (!akumanomi) {
+        res.status(404).send({ erro: "Akuma no mi não encontrada!" });
+        return;
         }
         res.akumanomi = akumanomi;
     } catch (err) {

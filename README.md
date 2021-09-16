@@ -35,6 +35,7 @@ Exemplos de URLs:
 * Para buscar por ID, insira o ID na URL: http://localhost:3000/read-by-id/5
 * Para editar, insira o ID na URL: http://localhost:3000/update/3
 * Para apagar, insira o ID na URL: http://localhost:3000/delete/1 
+* Para fazer uma busca com query string, esse é um exemplo de URL:  http://localhost:3000/filter?usuario=Sabo
 
 > Nesse site você consegue encontrar informações de akuma no mi para testar os end-points: https://onepiece.fandom.com/pt/wiki/Akuma_no_Mi
 
