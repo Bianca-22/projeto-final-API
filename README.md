@@ -2,7 +2,7 @@
 
 ![Akuma no Mi](https://onepieceex.net/wp-content/uploads/2017/04/Akuma-no-mi1.jpg.webp)
 
->API criada para guardar algumas informções sobre as akuma no mi (fruta do diabo) do anime One Piece. Foi utilizado a linguagem de programação JavaScript e o banco de dados MongoDb. Neessa API foi criadoum CRUD completo das akuma no mi.
+>API criada para guardar algumas informções sobre as akuma no mi (fruta do diabo) do anime One Piece. Foi utilizado a linguagem de programação JavaScript e o banco de dados MongoDb. Neessa API foi criado um CRUD completo das akuma no mi.
 
 Para utilizar o projeto faça o dowload do arquivo zip, ou faça o clone em seu computador utilizando o Git. Execute o comando `npm i` dentro da pasta do projeto em seu computador(a pasta que contém o arquivo package.json), para baixar as dependencias do projeto.
 
