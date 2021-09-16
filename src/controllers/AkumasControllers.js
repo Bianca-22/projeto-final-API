@@ -2,7 +2,7 @@ const conexao = require("../database/database");
 const AkumaSchema = require("../models/AkumanomiModel");
 
 const home = async(req, res) => {
-    res.send({info: 'Hola'});
+    res.send({info: 'Hey Guys!!'});
 };
 
 const getAll = async(req, res) => {
