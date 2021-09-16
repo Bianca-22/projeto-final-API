@@ -1,4 +1,3 @@
-const conexao = require("../database/database");
 const AkumaSchema = require("../models/AkumanomiModel");
 
 const home = async(req, res) => {
@@ -8,7 +7,7 @@ const home = async(req, res) => {
 const getAll = async(req, res) => {
   const akumanomi = await AkumaSchema.find();
   if (akumanomi.length === 0){
-    res.status(404).send({message: "Lista vazia"});
+    res.send({ message: "Lista vazia"  });
   };
   res.send({ akumanomi });
 };
@@ -30,16 +29,6 @@ const create = async(req,res) => {
   const novaAkuma = await new AkumaSchema(akuma).save();
 
   res.status(201).send({ novaAkuma });
-
-//     const objeto = req.body;
-
-//     if(!objeto.nome || !objeto.tipo || !objeto.usuario || !objeto.descricao){
-//         res.status(400).send({error: "Preencha todos os campos"});
-//         return;
-//     }
-
-//     Akumanomi.insertOne(objeto);
-//     res.send({message: "Akuma no mi criada com sucesso"});
 };
 
 const update = async (req, res) => {
