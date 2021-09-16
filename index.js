@@ -12,5 +12,5 @@ app.options("*", cors());
 app.use(routes);
 
 app.listen(port, () => {
-    console.info(`Servidor rodando em https://localhost:${port}/home`)
+    console.info(`Servidor rodando em http://localhost:${port}/home`)
 })
