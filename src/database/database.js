@@ -1,4 +1,12 @@
-const { MongoClient, ObjectId } = require("mongodb");
+const mongoose = require('mongoose');
+require("dotenv").config();
+
+mongoose.connect(process.env.DATABASE_URI, {
+useNewUrlParser: true, 
+useUnifiedTopology: true
+});
+
+/* const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.${process.env.DB_CHAR}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -10,6 +18,6 @@ client.connect(() => {
 });
 
 const db = client.db("onepiece_db");
-const Akumanomi = db.collection('akumanomi');
+const Akumanomi = db.collection('akumanomi'); */
 
-module.exports = {Akumanomi,ObjectId};
+module.exports = mongoose;
