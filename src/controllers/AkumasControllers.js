@@ -6,7 +6,7 @@ const home = async(req, res) => {
 };
 
 const getAll = async(req, res) => {
-  const akumanomi = await AkumaSchema.find();
+  const akumanomi = await AkumaSchema.find({});
   if (akumanomi.length === 0){
     res.status(404).send({message: "Lista vazia"});
   };
