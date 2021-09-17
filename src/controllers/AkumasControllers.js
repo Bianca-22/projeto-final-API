@@ -69,8 +69,9 @@ const filterAll = async (req, res) => {
       usuario: { $regex: `${usuario}`, $options: 'i' },
     });
 
-    if (akumanomi.length === 0)
+    if (akumanomi.length === 0){
       return res.status(404).send({ erro: "akumanomi não encontrado" });
+    }
 
     return res.send({ akumanomi });
   } catch (err) {
